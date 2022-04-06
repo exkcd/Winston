@@ -34,6 +34,19 @@ class Fun(commands.Cog):
 
             await ctx.send(embed=data)
 
+    @commands.group()
+    async def cool(self, ctx):
+        """Says if a user is cool. (checks if subcommand is being invoked)"""
+
+        if ctx.invoked_subcommand is None:
+            await ctx.send(f'No, {ctx.subcommand_passed} is not cool')
+
+    @cool.command(name='bot')
+    async def _bot(self, ctx):
+        """Is the bot cool?"""
+
+        await ctx.send('Yes, the bot is cool.')
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
