@@ -10,7 +10,7 @@ class Mod(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='cleanup', aliases=['purge'])
+    @commands.command(name='cleanup', aliases=['purge', 'clear'])
     @commands.guild_only()
     @commands.has_guild_permissions(manage_messages=True)
     async def cleanup(self, ctx, amount=10):
